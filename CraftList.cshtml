@@ -1,0 +1,34 @@
+@page
+@model FitnessTracker.Pages.CraftList
+
+<h1>Craft List</h1>
+
+<button @onclick="AddStrings">Add Strings</button>
+<br />
+
+<input type="number" min="0" max="5" @bind="displayCount" />
+
+@if (craftStrings != null && craftStrings.Length > 0)
+{
+    <ul>
+        @foreach (var str in craftStrings.Take(displayCount))
+        {
+            <li>@str</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No strings available.</p>
+}
+
+@code {
+    private string[] craftStrings;
+    private int displayCount = 5;
+
+    private void AddStrings()
+    {
+        // Replace this with logic to populate the array with fitness-related string values
+        craftStrings = new string[] { "String 1", "String 2", "String 3", "String 4", "String 5" };
+    }
+}
